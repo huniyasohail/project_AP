@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-configuration>
+<session-factory>
+    <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+    <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/traffic</property>
+    <property name="hibernate.connection.username">root</property>
+    <property name="hibernate.connection.password">huniya</property>
+    <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+    <property name="show_sql">true</property>
+    <mapping class="signal.traffic.Complain" />
+    <mapping class="signal.traffic.Complains" />
+    <mapping class="signal.traffic.Handle" />
+    <mapping class="signal.traffic.Links" />
+    <mapping class="signal.traffic.RoadCongestion" />
+    <mapping class="signal.traffic.Suggestion" />
+    <mapping class="signal.traffic.TrafficPolice" />
+    <mapping class="signal.traffic.VehicleOwner" />
+</session-factory>
+</hibernate-configuration>

@@ -1,0 +1,56 @@
+package util;
+import signal.traffic.Complain;
+import signal.traffic.Complains;
+import signal.traffic.Handle;
+import signal.traffic.Links;
+import signal.traffic.RoadCongestion;
+import signal.traffic.Suggestion;
+import signal.traffic.TrafficPolice;
+import signal.traffic.VehicleOwner;
+
+import org.hibernate.Query;
+import org.hibernate.Session;  
+import org.hibernate.SessionFactory;  
+
+import java.sql.Date;
+import java.util.Iterator;
+import java.util.List;
+
+public class App {
+	 public static void main(String[] args) {  
+		  SessionFactory sf = HibernateUtils.getSessionFactory();
+		  Session session = sf.openSession(); 
+		 
+		  
+		  
+		  session.beginTransaction();  
+		  Query query = session.createQuery("From RoadCongestion where road_id=2");
+		  
+		  List<RoadCongestion> R_list = query.list();
+		  Iterator<RoadCongestion> itr = R_list.iterator();
+		  while(itr.hasNext()){
+			  RoadCongestion road =(RoadCongestion)itr.next();
+			  System.out.println(road.getNofaccidents()+"gjugjg"+road.getNoOfLanes()+"ghgh"+road.getRoadname());
+		  }
+		  
+Query query1 = session.createQuery("From VehicleOwner where road_id=2");
+		  
+		  List<VehicleOwner> O_list = query1.list();
+		  Iterator<VehicleOwner> itr1 = O_list.iterator();
+		  while(itr1.hasNext()){
+			  VehicleOwner road1 =(VehicleOwner)itr1.next();
+			  System.out.println(road1.getCarLane()+"gjugjg"+road1.getOnwerid()+"ghgh");
+		  }
+		  
+		 /* List<RoadCongestion> road_data = session.createQuery("from RoadCongestion").list();
+	        for (RoadCongestion data : road_data) {
+	            System.out.print(data.getRoadId()+','+data.getCarPerLane());
+	        }*/
+	 
+	        session.getTransaction().commit();
+	        session.close();
+		  
+		  
+	 }
+
+}

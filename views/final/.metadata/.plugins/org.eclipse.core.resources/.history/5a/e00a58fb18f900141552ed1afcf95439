@@ -1,0 +1,5 @@
+package signal.traffic;
+
+public class TrafficPolice {
+
+}

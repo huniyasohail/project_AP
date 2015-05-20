@@ -1,0 +1,41 @@
+package util;  
+  
+
+import model.Student;
+import model.marksdetails;
+
+import org.hibernate.Session;  
+import org.hibernate.SessionFactory;  
+  
+
+  
+public class App {  
+ public static void main(String[] args) {  
+  SessionFactory sf = HibernateUtils.getSessionFactory();  
+  Session session = sf.openSession();  
+  
+  session.beginTransaction();  
+  
+  Student student = new Student("Nagesh", "Chauhan",  
+    "beingjavaguy@gmail.com", "8789876765");  
+  session.save(student);  
+  
+  marksdetails marksDetails1 = new marksdetails("Maths", "100", "87",  
+    "Passed");  
+  marksdetails marksDetails2 = new marksdetails("Science", "100", "90",  
+    "Passed");  
+  marksdetails marksDetails3 = new marksdetails("English", "100", "85",  
+    "Passed");  
+  
+  marksDetails1.setStudent(student);  
+  marksDetails2.setStudent(student);  
+  marksDetails3.setStudent(student);  
+  
+  session.save(marksDetails1);  
+  session.save(marksDetails2);  
+  session.save(marksDetails3);  
+  
+  session.getTransaction().commit();  
+  session.close();  
+ }  
+}  

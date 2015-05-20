@@ -1,0 +1,7 @@
+package snippet;
+
+public class Snippet {
+	Initial SessionFactory creation failed.java.lang.NullPointerException
+	Exception in thread "main" java.lang.ExceptionInInitializerError
+}
+

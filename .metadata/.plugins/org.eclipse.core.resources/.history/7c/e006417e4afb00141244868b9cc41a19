@@ -1,0 +1,28 @@
+package util;
+
+
+
+import signal.traffic.Complain;
+import signal.traffic.Complains;
+import signal.traffic.Handle;
+import signal.traffic.Links;
+import signal.traffic.RoadCogestion;
+import signal.traffic.Suggestion;
+import signal.traffic.TrafficPolice;
+import signal.traffic.VehicleOwner;
+
+import org.hibernate.Session;  
+import org.hibernate.SessionFactory;  
+
+public class App {
+	 public static void main(String[] args) {  
+		  SessionFactory sf = HibernateUtils.getSessionFactory();  
+		  Session session = sf.openSession();  
+		  
+		  session.beginTransaction();  
+		  
+		  
+		  
+	 }
+
+}

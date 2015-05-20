@@ -1,0 +1,129 @@
+package signal.traffic;
+
+import java.sql.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.sql.Time;
+import java.util.Set;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(name="RoadCongestion")
+
+public class RoadCogestion {
+ 
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "road_id", unique = true, nullable = false)
+    private int roadId;
+     
+	 @Column(name="roadname")
+	 private String roadname;
+	 
+	 @Column(name="noOfLanes")
+	 private int noOfLanes;
+	 
+	  @Column(name="timeofcongestion")
+	    private Time timeofcongestion;
+	 
+	  @Column(name="carsperLane")
+	  private int carPerLane;
+	  
+    @Column(name="signalduration")
+    private Time signalduration;
+     
+      
+    @Column(name="noofaccidents")
+    private int nofaccidents;
+     
+    
+   
+    @Column(name="totalLanes")
+    private int totalLanes;
+    
+    public String getRoadname() {
+		return roadname;
+	}
+
+	public void setRoadname(String roadname) {
+		this.roadname = roadname;
+	}
+
+	@Column(name="noofcars")
+	private int noofcar;
+	public int getNoofcar() {
+		return noofcar;
+	}
+
+	public void setNoofcar(int noofcar) {
+		this.noofcar = noofcar;
+	}
+
+	@Column(name="width")
+    private float width;
+    
+    public RoadCogestion() {}
+    
+    void setroad_id(int roadId ){
+    	this.roadId=roadId;
+    }
+ 
+      int getroad_id(){
+    	  return roadId;
+      }
+      
+      void setsignalduration(Time signalduration ){
+      	this.signalduration=signalduration;
+      }
+   
+        Time getsignalduration(){
+      	  return signalduration;
+        }
+   
+        void settimeofcongestion(Time timeofcongestion ){
+          	this.timeofcongestion=timeofcongestion;
+          }
+       
+            Time gettimeofcongestion(){
+          	  return timeofcongestion;
+            }
+     
+   
+            void setnoofaccident(int nofaccidents ){
+            	this.nofaccidents=nofaccidents;
+            }
+         
+              int getnofaccidents(){
+            	  return nofaccidents;
+              }
+              
+             
+            
+    // Getter and Setter methods
+
+              public RoadCogestion(int roadId,String roadname,Time signalduration,Time timeofcongestion, int nofaccidents,int width,int noofcars) {
+                  this.roadId=roadId;
+            	  this.signalduration=signalduration;
+            	  this.timeofcongestion=timeofcongestion;
+            	  this.nofaccidents=nofaccidents;
+            	  this.width=width;
+            	  this.noofcar=noofcars;
+            	  this.roadname=roadname;
+            	  
+            	  
+               }
+
+}
+
+
+
+
+
+

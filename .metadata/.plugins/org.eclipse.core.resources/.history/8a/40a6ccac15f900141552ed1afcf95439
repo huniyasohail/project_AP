@@ -1,0 +1,31 @@
+package signal.traffic;
+
+import java.sql.Date;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.Table;
+import java.sql.Time;
+import java.util.Set;
+import static javax.persistence.GenerationType.IDENTITY;
+import javax.persistence.UniqueConstraint;
+
+@Entity
+@Table(name="VehicleOwner")
+
+public class VehicleOwner {
+
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "car_id", unique = true, nullable = false)
+    private int carId;
+	
+	@Column(name="roadId")
+	private RoadCogestion roadid;
+     
+}
